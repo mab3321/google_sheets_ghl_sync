@@ -1,0 +1,21 @@
+[Unit]
+Description=GHL Integration Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/livekit/google_sheets_to_ghl
+Environment=PATH=/opt/livekit/google_sheets_to_ghl/.venv/bin
+ExecStart=/opt/livekit/google_sheets_to_ghl/.venv/bin/python main.py
+Restart=always
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=ghl-integration
+
+# Environment variables can be set here or use EnvironmentFile
+EnvironmentFile=/opt/livekit/google_sheets_to_ghl/.env
+
+[Install]
+WantedBy=multi-user.target

@@ -10,4 +10,12 @@ wheels/
 .venv
 
 # Environment variables
-.env
+
+# Log files
+logs/
+*.log
+
+# PM2 files
+.pm2/
+config.bat
+node_modules
