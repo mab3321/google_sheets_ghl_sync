@@ -143,4 +143,17 @@ def create_routes(
             "version": "0.1.0"
         }), 200
     
+    @bp.route("/", methods=["GET"])
+    def root():
+        """GET / endpoint for basic service check."""
+        return jsonify({
+            "message": "Google Sheets to GHL Integration Service",
+            "status": "running",
+            "version": "0.1.0",
+            "endpoints": {
+                "health": "/health",
+                "ingest": "/ingest (POST)"
+            }
+        }), 200
+    
     return bp

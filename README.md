@@ -55,6 +55,7 @@ uv sync
 
 ## Running
 
+### Development
 ```bash
 # Main entry point (recommended)
 python main.py
@@ -64,6 +65,49 @@ python app.py
 
 # With uv
 uv run python main.py
+```
+
+### Production with PM2
+
+1. **Install PM2** (if not already installed):
+```bash
+./pm2.sh install-pm2
+```
+
+2. **Deploy the service**:
+```bash
+./deploy.sh
+```
+
+3. **Manage the service**:
+```bash
+./pm2.sh start       # Start the service
+./pm2.sh stop        # Stop the service
+./pm2.sh restart     # Restart the service
+./pm2.sh status      # Check status
+./pm2.sh logs        # View logs
+./pm2.sh health      # Check health endpoint
+./pm2.sh test        # Test root endpoint
+```
+
+4. **Setup auto-start** (run once):
+```bash
+./pm2.sh setup
+```
+
+### Alternative: Systemd Service
+
+```bash
+# Copy service file
+sudo cp ghl-integration.service /etc/systemd/system/
+
+# Enable and start
+sudo systemctl daemon-reload
+sudo systemctl enable ghl-integration
+sudo systemctl start ghl-integration
+
+# Check status
+sudo systemctl status ghl-integration
 ```
 
 ## Testing
