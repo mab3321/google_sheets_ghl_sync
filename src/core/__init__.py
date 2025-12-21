@@ -1,0 +1,1 @@
+"""Core module for interfaces and shared components."""
